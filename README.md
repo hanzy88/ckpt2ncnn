@@ -1,6 +1,6 @@
-######################################
-tf2ncnn by ziyang
-######################################
+#######################
+ckpt2pb2ncnn
+#######################
 
 Warning: All below related config like file path in every file should be changed first.
 
