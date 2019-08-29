@@ -1,10 +1,8 @@
-#######################
-ckpt2pb2ncnn
-#######################
+# ckpt2pb2ncnn
 
 Warning: All below related config like file path in every file should be changed first.
 
-First: Turn the ckpt files of the saved model to pbtxt
+## First: Turn the ckpt files of the saved model to pbtxt
 
 Before training the model you defined, you'd better make sure the type and shape of the input, also the output of the model, 
 as in ckpt2pbtxt.py, line 12, 13
@@ -18,7 +16,7 @@ follow cmd:
 	
 	python ckpt2pbtxt.py
 
-Second: Turn pbtxt to pb
+## Second: Turn pbtxt to pb
 
 1. Obtain the input and output node of the model, check in the xxx.pbtxt. Usually, the ouput node is the last node before the node
 named startwith save/..., like:
@@ -48,7 +46,7 @@ running the follow cmd based on the ckpt files:
 
 	python getNode.py
 
-Third: Turn pb to the param and bin files for ncnn
+## Third: Turn pb to the param and bin files for ncnn
 
 1. Run the follow cmd:
 
