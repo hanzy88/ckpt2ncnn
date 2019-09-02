@@ -5,7 +5,7 @@ cnn_full_model_epoch_42.data-00000-of-00001 (for yolov3) should be download by t
 ## First: Turn the ckpt files of the saved model to pbtxt
 
 Before training the model you defined, you'd better make sure the type and shape of the input, also the output of the model, 
-as in ckpt2pbtxt.py, line 12, 13
+as in ckpt2pbtxt.py,
 
 	input_x = tf.placeholder(tf.float32, shape=[None, shapes_w, shapes_h, shapes_c], name=input_node)
 	logits = modelOutput(input_x, class_num)
