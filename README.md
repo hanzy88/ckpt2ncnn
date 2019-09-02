@@ -7,8 +7,8 @@ Warning: All below related config like file path in every file should be changed
 Before training the model you defined, you'd better make sure the type and shape of the input, also the output of the model, 
 as in ckpt2pbtxt.py, line 12, 13
 
-	input_x = tf.placeholder(tf.float32, shape=[None, 56,56, 3], name='input_x')
-	logits = classify_model(input_x, class_num)
+	input_x = tf.placeholder(tf.float32, shape=[None, shapes_w, shapes_h, shapes_c], name=input_node)
+	logits = modelOutput(input_x, class_num)
 
   the line above requests to be changed according to your model, for more information please check in ckpt2pbtxt.py. Make sure
 the related ckpt files for the trained model are saved correctly and the related changes are made in ckpt2pbtxt.py.  Then , run the 
@@ -32,19 +32,18 @@ named startwith save/..., like:
 
 2. Based the name of output node in xxx.pbtxt, run the follow cmd to finish the turn op:
 	
-	python convert2pb.py
+	python pbtext2pb.py
 
 3. To visual or test the .pb files, run the follow cmds:
 
-	python pb2visual.py
-	python  pb2test.py
+	python tensorboardOfPb.py
 
 make sure the built .pb files can be tested successfully.
 
-And with the pb2Node.py, you can check  the node in the generated result.txt. The node also can be obtain by 
+And with the nodeOfPb.py, you can check  the node in the generated result.txt. The node also can be obtain by 
 running the follow cmd based on the ckpt files:
 
-	python getNode.py
+	python nodeOfCkpt.py
 
 ## Third: Turn pb to the param and bin files for ncnn
 
