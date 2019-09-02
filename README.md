@@ -1,6 +1,6 @@
 # ckpt2pb2ncnn
 
-Warning: All below related config like file path in every file should be changed first.
+cnn_full_model_epoch_42.data-00000-of-00001 (for yolov3) should be download by the baiduyun, for detail you can open the cnn_full_model_epoch_42.data-00000-of-00001 file.
 
 ## First: Turn the ckpt files of the saved model to pbtxt
 
