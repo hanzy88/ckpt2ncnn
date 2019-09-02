@@ -22,16 +22,22 @@ follow cmd:
 named startwith save/..., like:
 
 	node{
+	
 		name: "comExp/output/Conv2D"  
+		
 		#comExp is the defined variables_scope, output is the name defined for output layer, 
+		
 		#Conv2d is the corresponding op.
+		
 		op: "Conv2D"
+		
 		input: "comExp/MaxPool_2"
+		
 	... ...
 
 
-2. Based the name of output node in xxx.pbtxt, run the follow cmd to finish the turn op:
-	
+2. Based the name of output node in xxx.pbtxt, run the follow cmd to finish the turn op: 
+
 	python pbtext2pb.py
 
 3. To visual or test the .pb files, run the follow cmds:
