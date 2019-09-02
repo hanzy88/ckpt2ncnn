@@ -23,3 +23,5 @@ if __name__ == '__main__':
 
     turnPb(args.pbtxt, args.ckpt, args.output_node , args.output_path)
     print("Finished")
+
+    #python pbtxt2pb.py -p 'models/yolov3.pbtxt' -c 'cnn_full_model_epoch_42' -n 'yolo_head3/cnn/add' -o 'yolov3.pb'
