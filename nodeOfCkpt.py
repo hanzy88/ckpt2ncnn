@@ -9,7 +9,7 @@ def readNode(checkpoint_path):
 
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser()
     parser.add_argument('--ckpt', '-c')
     args = parser.parse_args()
     if not args.ckpt:
