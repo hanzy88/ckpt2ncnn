@@ -61,5 +61,5 @@ running the follow cmd based on the ckpt files:
 the input and output name will be used for build the model in ncnn.
 
 
-For more information of covert2pb.py, please check:
+For more information of pbtxt2pb.py, please check:
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py
