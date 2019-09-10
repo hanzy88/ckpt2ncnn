@@ -33,7 +33,7 @@ if __name__ == '__main__':
 	if not args.shape_w or not args.shape_h or not args.shape_c or not args.input_node or not args.class_num or not args.restore_path or not args.store_path:
 		print("Please input as: python ckpt2pbtxt.py -sw 16 -sh 16 -sc 3 -i 'input_x' -c 7 -r 'models/model_epoch_100' -p 'models/model.pbtxt'")
 		print("-sw/-sh/-sc: shape of input node")
-		print("-i: name of the input node, default as 'input_x'")
+		print("-i: define the name of input node, default as 'input_x'")
 		print("-cls: class number")
 		print("-r: place of the file of the stored ckpt")
 		print("-p: place of the file of pbtxt to store")
