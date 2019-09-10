@@ -5,11 +5,11 @@ import time
 import cv2
 import sys
  
-def recognize(w, h, c, inputs, pb, inName, outName):
+def recognize(shapes_w, shapes_h, shapes_c, inputs, pb, inName, outName):
     with tf.Graph().as_default():
         output_graph_def = tf.GraphDef()
  
-        with open(pb_file_path, "rb") as f:
+        with open(pb, "rb") as f:
             output_graph_def.ParseFromString(f.read())
             for node in output_graph_def.node :
                 if node.op == 'RefSwitch':
@@ -34,9 +34,13 @@ def recognize(w, h, c, inputs, pb, inName, outName):
  
             img = cv2.imread(inputs)
             img_ori = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            test_img = cv2.resize(img, (w, h))
+            test_img = cv2.resize(img, (shapes_w, shapes_h))
             test_img = np.asarray(test_img, np.float32)
-            test_img = np.reshape(test_img, (1,w,h,c))
+
+            #if not do / 255, remove the this comment, and comment next line
+            #test_img = np.reshape(test_img, (1,shapes_w,shapes_h,shapes_c)) 
+
+            #if do / 255, remove the this comment, and comment above line
             test_img = test_img[np.newaxis, :] / 255.
             
             np.set_printoptions(threshold=sys.maxsize)
@@ -66,7 +70,7 @@ if __name__ == '__main__':
     parser.add_argument("--outputName", '-o')
     args = parser.parse_args()
 
-    if not args.shape_w or not args.shape_h or not args.shape_c or not args.input or not args.pb or not args.inName or not args.outName:
+    if not args.shape_w or not args.shape_h or not args.shape_c or not args.input or not args.pb or not args.inName or not args.outputName:
         print("Please input as: python testOfpb.py -sw 16 -sh 16 -sc 3 -i '1.jpg' -p 'model.pb' -n 'input_x:0' -o 'ouput/fc_1/Matmul:0' ")
         print("-sw/-sh/-sc: shape of input node")
         print("-i: input of the model")
@@ -77,4 +81,4 @@ if __name__ == '__main__':
 
     print("\n Warning: you'd better check the detail of this test since the input are preprocess for image like image/255.0\n")
 
-    recognize(args.shape_w, args.shape_h, args.shape_c, args.input, args.pb, args.inName, args.outName)
+    recognize(args.shape_w, args.shape_h, args.shape_c, args.input, args.pb, args.inName, args.outputName)
