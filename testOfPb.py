@@ -37,10 +37,10 @@ def recognize(shapes_w, shapes_h, shapes_c, inputs, pb, inName, outName):
             test_img = cv2.resize(img, (shapes_w, shapes_h))
             test_img = np.asarray(test_img, np.float32)
 
-            #if not do / 255, remove the this comment, and comment next line
+            #if not do / 255, remove this comment, and comment next line
             #test_img = np.reshape(test_img, (1,shapes_w,shapes_h,shapes_c)) 
 
-            #if do / 255, remove the this comment, and comment above line
+            #if do / 255, remove this comment, and comment above line
             test_img = test_img[np.newaxis, :] / 255.
             
             np.set_printoptions(threshold=sys.maxsize)
